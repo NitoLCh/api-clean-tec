@@ -1,0 +1,19 @@
+{
+    "sqltools.connections": [
+        {
+            "mssqlOptions": {
+                "appName": "SQLTools",
+                "useUTC": true,
+                "encrypt": true,
+                "instanceName": "cleantec"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 1433,
+            "askForPassword": true,
+            "driver": "MSSQL",
+            "connectString": "workstation id=CleanTec.mssql.somee.com;packet size=4096;user id=devteclag_SQLLogin_1;pwd=7dlwfomccu;data source=CleanTec.mssql.somee.com;persist security info=False;initial catalog=CleanTec",
+            "name": "CleanTec"
+        }
+    ]
+}
