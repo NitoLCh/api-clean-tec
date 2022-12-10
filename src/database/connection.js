@@ -1,13 +1,38 @@
-import sql from 'mssql';
+import sql from 'mssql'
 
-const dbsettings = 'workstation id=CleanTec.mssql.somee.com;packet size=4096;user id=devteclag_SQLLogin_1;pwd=7dlwfomccu;data source=CleanTec.mssql.somee.com;persist security info=False;initial catalog=CleanTec';
+const dbSettings = {
+    user: 'devteclag_SQLLogin_1',
+    password: '7dlwfomccu',  
+    server: 'CleanTec.mssql.somee.com',  
+    database: 'CleanTec',  
+    options: {
+        trustServerCertificate: true,
+        encrypt: true,
+        }
+    };  
 
+//const dbSettings = "Data Source=CleanTec.mssql.somee.com;Initial Catalog=CleanTec;User ID=devteclag_SQLLogin_1;Password=7dlwfomccu"
 
-async () => {
+/*export const getConnection = async () => {
+    const connection = new Connection(dbSettings);  
+    connection.on('connect', function(err) {  
+    // If no error, then good to proceed.
+    console.log("Connected");  
+    });
     try {
-        // make sure that any items are correctly URL encoded in the connection string
-        await sql.connect(dbsettings)
-    } catch (err) {
-        // ... error checks
+        const pool = await connection.connect();
+        return pool;
+    } catch (error) {
+        console.log(error);
+    }
+}*/
+
+export const getConnection = async() => {
+    try{
+        const pool = await sql.connect(dbSettings);
+        return pool;
+    }
+    catch(error){
+        console.log(error);
     }
 }
