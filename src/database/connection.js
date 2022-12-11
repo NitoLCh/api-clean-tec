@@ -36,3 +36,5 @@ export const getConnection = async() => {
         console.log(error);
     }
 }
+
+export {sql};

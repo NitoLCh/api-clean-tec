@@ -6,6 +6,9 @@ const app = express();
 
 //settings
 app.set('port', config.port || 3000);
+
+app.use(express.json())
+app.use(express.urlencoded({ esxtended: false }))
 app.use(personalRoutes)
 
 
